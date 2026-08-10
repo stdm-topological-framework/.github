@@ -2,7 +2,7 @@ name: Daily Profile GIF Updater
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 
 jobs:
@@ -14,7 +14,7 @@ jobs:
 
       - name: Pick random GIF and update README
         run: |
-          RANDOM_NUM=$((1 + RANDOM % 3))
+          RANDOM_NUM=$((1 + RANDOM % 7))
           echo "Selected GIF number: $RANDOM_NUM"
           
           # Очищаем всё между маркерами и вставляем новую ссылку
