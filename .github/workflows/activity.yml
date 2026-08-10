@@ -1,0 +1,21 @@
+name: Update GitHub Activity
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # Будет обновляться тоже каждые 6 часов
+  workflow_dispatch: # Чтобы вы могли запустить его вручную кнопкой
+
+jobs:
+  update-activity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update Organization Activity
+        uses: jamesgeorge007/github-activity-readme@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          COMMIT_MSG: "Автообновление: список активности обновлен"
+          MAX_LINES: 5
