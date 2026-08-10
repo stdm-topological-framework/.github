@@ -14,13 +14,13 @@ jobs:
 
       - name: Pick random GIF and update README
         run: |
-          # Выбираем случайное число от 1 до 58
-          RANDOM_NUM=$((1 + RANDOM % 58))
+          # Выбираем случайное число от 1 до 3
+          RANDOM_NUM=$((1 + RANDOM % 3))
           echo "Selected GIF number: $RANDOM_NUM"
           
           # Заменяем старую картинку между нашими тегами-маркерами
           sed -i '/<!-- START_GIF -->/,/<!-- END_GIF -->/{//!d;}' README.md
-          sed -i '/<!-- START_GIF -->/a !\[Солнечная система\]\(gifs/'"$RANDOM_NUM"'.gif\)' README.md
+          sed -i '/<!-- START_GIF -->/a !\[space\]\(gifs/'"$RANDOM_NUM"'.gif\)' README.md
 
       - name: Commit and Push changes
         run: |
