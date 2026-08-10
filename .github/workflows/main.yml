@@ -19,7 +19,7 @@ jobs:
           
           # Очищаем всё между маркерами и вставляем новую ссылку
           sed -i '/<!-- START_GIF -->/,/<!-- END_GIF -->/{//!d;}' profile/README.md
-          sed -i '/<!-- START_GIF -->/a \!\[space\]\(gifs/'"$RANDOM_NUM"'.gif\)' profile/README.md
+          sed -i '/<!-- START_GIF -->/a \!\[space\]\(\.\.\/gifs/'"$RANDOM_NUM"'.gif\)' profile/README.md
 
       - name: Commit and Push changes
         run: |
