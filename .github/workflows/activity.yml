@@ -2,8 +2,8 @@ name: Update GitHub Activity
 
 on:
   schedule:
-    - cron: '0 */6 * * *' # Будет обновляться тоже каждые 6 часов
-  workflow_dispatch: # Чтобы вы могли запустить его вручную кнопкой
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
 
 jobs:
   update-activity:
@@ -19,3 +19,5 @@ jobs:
         with:
           COMMIT_MSG: "Автообновление: список активности обновлен"
           MAX_LINES: 5
+          README_FILE: "profile/README.md"
+
