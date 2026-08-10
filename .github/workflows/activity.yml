@@ -19,5 +19,4 @@ jobs:
         with:
           COMMIT_MSG: "Автообновление: список активности обновлен"
           MAX_LINES: 5
-          README_FILE: "profile/README.md"
-
+          TARGET_FILE: "profile/README.md"
