@@ -14,18 +14,17 @@ jobs:
 
       - name: Pick random GIF and update README
         run: |
-          # Выбираем случайное число от 1 до 3
           RANDOM_NUM=$((1 + RANDOM % 3))
           echo "Selected GIF number: $RANDOM_NUM"
           
-          # Заменяем старую картинку между нашими тегами-маркерами
-          sed -i '/<!-- START_GIF -->/,/<!-- END_GIF -->/{//!d;}' README.md
-          sed -i '/<!-- START_GIF -->/a !\[space\]\(gifs/'"$RANDOM_NUM"'.gif\)' README.md
+          # Очищаем всё между маркерами и вставляем новую ссылку
+          sed -i '/<!-- START_GIF -->/,/<!-- END_GIF -->/{//!d;}' profile/README.md
+          sed -i '/<!-- START_GIF -->/a \!\[space\]\(gifs/'"$RANDOM_NUM"'.gif\)' profile/README.md
 
       - name: Commit and Push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add README.md
+          git add profile/README.md
           git diff-index --quiet HEAD || git commit -m "Автообновление: установлена гифка №$RANDOM_NUM"
           git push
